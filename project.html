@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project | Hasan Al Mahmud</title>
+  <link rel="icon" href="assets/hasan.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a href="index.html" class="logo">Hasan<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme-btn" aria-label="Toggle dark mode" data-icon="moon"></button>
+        <button class="icon-btn menu-btn" id="menu-btn" aria-label="Open menu" data-icon="menu"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="detail"></main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year"></span> Hasan Al Mahmud. All rights reserved.</span>
+      <span>Dhaka, Bangladesh</span>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    const slug = new URLSearchParams(location.search).get("p");
+    const p = PORTFOLIO.projects.find((x) => x.slug === slug);
+    const el = document.getElementById("detail");
+    const list = (items) => `<ul>${items.map((i) => `<li>${i}</li>`).join("")}</ul>`;
+    if (!p) {
+      el.innerHTML = `<section class="detail-hero"><h1>Project not found</h1><p class="tagline">That project doesn't exist.</p><a class="btn btn-primary" href="index.html#projects">Back to projects</a></section>`;
+    } else {
+      document.title = `${p.name} | Hasan Al Mahmud`;
+      el.innerHTML = `
+        <section class="detail-hero">
+          <a class="back" href="index.html#projects">← Back to projects</a>
+          <h1>${p.name}</h1>
+          <p class="tagline">${p.tagline}</p>
+          <img class="detail-shot" src="${p.image}" alt="${p.name} screenshot" />
+        </section>
+        <div class="detail-grid">
+          <div>
+            <h2>Overview</h2><p>${p.description}</p>
+            <h2>Key features</h2>${list(p.features)}
+            <h2>Challenges I faced</h2>${list(p.challenges)}
+            <h2>Future improvements</h2>${list(p.future)}
+          </div>
+          <aside class="side">
+            <h3>Tech stack</h3>
+            <div class="tags">${p.stack.map((t) => `<span class="tag">${t}</span>`).join("")}</div>
+            ${p.live ? `<a class="btn btn-primary" href="${p.live}" target="_blank" rel="noopener" data-icon="external">Live Site</a>` : `<p class="note">${p.liveNote || ""}</p>`}
+            ${p.github ? `<a class="btn btn-ghost" href="${p.github}" target="_blank" rel="noopener" data-icon="github">GitHub (Client)</a>` : `<p class="note">${p.githubNote || ""}</p>`}
+          </aside>
+        </div>`;
+    }
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>
