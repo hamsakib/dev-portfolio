@@ -64,6 +64,7 @@
             <div class="tags">${p.stack.map((t) => `<span class="tag">${t}</span>`).join("")}</div>
             ${p.live ? `<a class="btn btn-primary" href="${p.live}" target="_blank" rel="noopener" data-icon="external">Live Site</a>` : `<p class="note">${p.liveNote || ""}</p>`}
             ${p.github ? `<a class="btn btn-ghost" href="${p.github}" target="_blank" rel="noopener" data-icon="github">GitHub (Client)</a>` : `<p class="note">${p.githubNote || ""}</p>`}
+            ${p.githubServer ? `<a class="btn btn-ghost" href="${p.githubServer}" target="_blank" rel="noopener" data-icon="github">GitHub (Server)</a>` : ""}
           </aside>
         </div>`;
     }

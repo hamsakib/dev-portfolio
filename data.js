@@ -38,6 +38,7 @@ window.PORTFOLIO = {
       stack: ["Next.js 16", "React 19", "Tailwind CSS", "Express 5", "MongoDB", "Mongoose", "JWT", "Recharts"],
       live: "https://glowra-client.vercel.app",
       github: "https://github.com/hamsakib/glowra-client",
+      githubServer: "https://github.com/hamsakib/glowra-server",
       description:
         "A skincare marketplace with a Next.js front end and an Express and MongoDB API. Visitors explore products with search, filters, sorting and pagination; signed-in users buy, review and manage their own listings; admins manage users, products, categories and reports from a dashboard with live charts.",
       features: [
