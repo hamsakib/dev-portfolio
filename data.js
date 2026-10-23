@@ -36,8 +36,8 @@ window.PORTFOLIO = {
       tagline: "Full-stack skincare marketplace with role-based dashboards",
       image: "assets/work/glowra.webp",
       stack: ["Next.js 16", "React 19", "Tailwind CSS", "Express 5", "MongoDB", "Mongoose", "JWT", "Recharts"],
-      live: "",
-      github: "",
+      live: "https://glowra-client.vercel.app",
+      github: "https://github.com/hamsakib/glowra-client",
       description:
         "A skincare marketplace with a Next.js front end and an Express and MongoDB API. Visitors explore products with search, filters, sorting and pagination; signed-in users buy, review and manage their own listings; admins manage users, products, categories and reports from a dashboard with live charts.",
       features: [
@@ -52,6 +52,29 @@ window.PORTFOLIO = {
         "Designing role-based middleware so admin routes are protected on the API, not only hidden in the UI.",
       ],
       future: ["Online payments", "Seller verification flow", "Email notifications for orders"],
+    },
+    {
+      slug: "dhaka-pulse",
+      name: "Dhaka Pulse",
+      tagline: "Event discovery app for Dhaka with Firebase login",
+      image: "assets/work/dhaka-pulse.webp",
+      stack: ["Next.js 16", "App Router", "Firebase Auth", "React 19", "Tailwind CSS"],
+      live: "https://dhaka-pulse.vercel.app",
+      github: "https://github.com/hamsakib/dhaka-pulse",
+      description:
+        "A Next.js App Router app for finding what's on in Dhaka: live music, tech meetups, food walks, art shows and workshops. Anyone can browse and search events; signed-in users can add their own events and manage them from a protected page.",
+      features: [
+        "Firebase email/password and Google sign-in, with the user kept in React Context",
+        "Search with category, area and price filters, plus sorting",
+        "Dynamic event detail pages with related events",
+        "Protected Add and Manage pages that redirect visitors to login",
+        "Light and dark mode, responsive layout and toast confirmations",
+      ],
+      challenges: [
+        "Pre-rendering the seed events for speed while still rendering events users add in the browser on demand.",
+        "Protecting client-side routes cleanly so logged-out visitors are sent to login and returned afterwards.",
+      ],
+      future: ["Store events in Firestore so they are shared between users", "Ticket booking and event reminders"],
     },
     {
       slug: "ai-lead-qualifier",
